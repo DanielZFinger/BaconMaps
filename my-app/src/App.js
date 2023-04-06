@@ -180,7 +180,7 @@ function App() {
         </Select>
       </FormControl>
     </Box>
-    <Button variant="contained" href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/baconmaps/StravaAutoMap/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
+    <Button variant="contained" href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
     <Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1); console.log(code1)}} >Create File</Button>
     </header>
     </div>
