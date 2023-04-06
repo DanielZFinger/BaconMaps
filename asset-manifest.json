@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/baconmaps/static/css/main.073c9b0a.css",
-    "main.js": "/baconmaps/static/js/main.09563680.js",
-    "static/js/787.28cb0dcd.chunk.js": "/baconmaps/static/js/787.28cb0dcd.chunk.js",
-    "index.html": "/baconmaps/index.html",
-    "main.073c9b0a.css.map": "/baconmaps/static/css/main.073c9b0a.css.map",
-    "main.09563680.js.map": "/baconmaps/static/js/main.09563680.js.map",
-    "787.28cb0dcd.chunk.js.map": "/baconmaps/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/BaconMaps/static/css/main.073c9b0a.css",
+    "main.js": "/BaconMaps/static/js/main.8a3664cb.js",
+    "static/js/787.28cb0dcd.chunk.js": "/BaconMaps/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/BaconMaps/index.html",
+    "main.073c9b0a.css.map": "/BaconMaps/static/css/main.073c9b0a.css.map",
+    "main.8a3664cb.js.map": "/BaconMaps/static/js/main.8a3664cb.js.map",
+    "787.28cb0dcd.chunk.js.map": "/BaconMaps/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.09563680.js"
+    "static/js/main.8a3664cb.js"
   ]
 }
