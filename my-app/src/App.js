@@ -140,7 +140,7 @@ function App() {
         <label>Start Time</label>
         <input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/>
         <label>Finish Time</label>
-        <input type="time" deafultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/>
+        <input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/>
         <TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/>
         <TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/>
       </Box>
