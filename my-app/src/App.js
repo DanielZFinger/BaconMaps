@@ -114,10 +114,12 @@ function App() {
     setFinishTime(event.target.value);
   };
   const handleChangeStartMile = (event: SelectChangeEvent) => {
-    setStartMile(event.target.value);
+    const result = event.target.value.replace(/\D/g, '');
+    setStartMile(result);
   };
   const handleChangeFinishMile = (event: SelectChangeEvent) => {
-    setFinishMile(event.target.value);
+    const result = event.target.value.replace(/\D/g, '');
+    setFinishMile(result);
   };
 
   return (
