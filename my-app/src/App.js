@@ -14,9 +14,11 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import dayjs, { Dayjs } from 'dayjs';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 import AWS from 'aws-sdk';
+
 
 let searchStr = window.location.search;
 let urlParams1 = new URLSearchParams(searchStr);
@@ -51,6 +53,26 @@ function callLambda(startTime, startDate, finishTime, startMile, finishMile, cod
     startTime = frontTempTime.toString() +":"+tempTime;
   }
   console.log("start time post math: "+startTime);
+  if(0>startMile){
+    startMile=0;
+  }
+  if(startMile>2650){
+    startMile=2650;
+  }
+  if(0>finishMile){
+    finishMile=0;
+  }
+  if(finishMile>2650){
+    finishMile=2650;
+  }
+  startMile=startMile*2;
+  startMile=Math.round(startMile);
+  startMile=startMile/2;
+  finishMile=finishMile*2;
+  finishMile=Math.round(finishMile);
+  finishMile=finishMile/2;
+  console.log(startMile);
+  console.log(finishMile);
   const payload = {
     startTime: startTime,
     startDate: startDate,
@@ -77,11 +99,11 @@ function callLambda(startTime, startDate, finishTime, startMile, finishMile, cod
 
 
 function App() {
-  const [startDate, setStartDate] = React.useState();
-  const [startTime, setStartTime] = React.useState();
-  const [finishTime, setFinishTime] = React.useState();
-  const [startMile, setStartMile] = React.useState('');
-  const [finishMile, setFinishMile] = React.useState('');
+  const [startDate, setStartDate] = React.useState("2023-04-01");
+  const [startTime, setStartTime] = React.useState("6:00");
+  const [finishTime, setFinishTime] = React.useState("10:00");
+  const [startMile, setStartMile] = React.useState('0');
+  const [finishMile, setFinishMile] = React.useState('0');
   const handleChangeStartDate = (event: SelectChangeEvent) => {
     setStartDate(event.target.value);
   };
@@ -110,58 +132,18 @@ function App() {
       >
     <div className="App">
       <header className="App-header">
-      <Box sx={{ minWidth: 120 }}>
-        <input type="date" onChange={e=>setStartDate(e.target.value)}/>
-        <input type="time" onChange={e=>setStartTime(e.target.value)}/>
-        <input type="time" onChange={e=>setFinishTime(e.target.value)}/>
-        <TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" value={startMile} onChange={handleChangeStartMile}/>
+        <Typography sx={{m:"1%" ,color:"orange"}}>Link to Strava before creating your activity!</Typography>
+      <Button variant="contained" sx={{color:"orange"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
+      <Box sx={{ minWidth: 120 }} >
+        <label>Activity Date</label>
+        <input type="date" value="2023-01-01" onChange={e=>setStartDate(e.target.value)}/>
+        <label>Start Time</label>
+        <input type="time" value="06:00:00" onChange={e=>setStartTime(e.target.value)}/>
+        <label>Finish Time</label>
+        <input type="time" value="18:00:00" onChange={e=>setFinishTime(e.target.value)}/>
+        <TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/>
         <TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/>
-
-      <FormControl fullWidth>
-        <InputLabel variant="contained" id="demo-simple-select-label">StartMile</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={startMile}
-          label="StartMile"
-          onChange={handleChangeStartMile}
-        >
-          <MenuItem value={"0"}>0</MenuItem>
-          <MenuItem value={"1"}>1</MenuItem>
-          <MenuItem value={"2"}>2</MenuItem>
-          <MenuItem value={"3"}>3</MenuItem>
-          <MenuItem value={"4"}>4</MenuItem>
-          <MenuItem value={"5"}>5</MenuItem>
-          <MenuItem value={"6"}>6</MenuItem>
-          <MenuItem value={"7"}>7</MenuItem>
-          <MenuItem value={"8"}>8</MenuItem>
-          <MenuItem value={"9"}>9</MenuItem>
-        </Select>
-      </FormControl>
-      {/* finish mile */}
-      <FormControl fullWidth>
-        <InputLabel variant="contained" id="demo-simple-select-label">Finish Mile</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={finishMile}
-          label="FinishMile"
-          onChange={handleChangeFinishMile}
-        >
-          <MenuItem value={"1"}>1</MenuItem>
-          <MenuItem value={"2"}>2</MenuItem>
-          <MenuItem value={"3"}>3</MenuItem>
-          <MenuItem value={"4"}>4</MenuItem>
-          <MenuItem value={"5"}>5</MenuItem>
-          <MenuItem value={"6"}>6</MenuItem>
-          <MenuItem value={"7"}>7</MenuItem>
-          <MenuItem value={"8"}>8</MenuItem>
-          <MenuItem value={"9"}>9</MenuItem>
-          <MenuItem value={"28"}>28</MenuItem><MenuItem value={"29"}>29</MenuItem><MenuItem value={"30"}>30</MenuItem><MenuItem value={"31"}>31</MenuItem><MenuItem value={"101"}>101</MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
-    <Button variant="contained" href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
+      </Box>
     <Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1); console.log(code1)}} >Create File</Button>
     </header>
     </div>
