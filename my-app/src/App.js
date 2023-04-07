@@ -136,11 +136,11 @@ function App() {
       <Button variant="contained" sx={{color:"orange"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
       <Box sx={{ minWidth: 120 }} >
         <label>Activity Date</label>
-        <input type="date" value="2023-01-01" onChange={e=>setStartDate(e.target.value)}/>
+        <input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/>
         <label>Start Time</label>
-        <input type="time" value="06:00:00" onChange={e=>setStartTime(e.target.value)}/>
+        <input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/>
         <label>Finish Time</label>
-        <input type="time" value="18:00:00" onChange={e=>setFinishTime(e.target.value)}/>
+        <input type="time" deafultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/>
         <TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/>
         <TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/>
       </Box>
