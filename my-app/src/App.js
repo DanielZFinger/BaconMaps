@@ -56,14 +56,14 @@ function callLambda(startTime, startDate, finishTime, startMile, finishMile, cod
   if(0>startMile){
     startMile=0;
   }
-  if(startMile>2650){
-    startMile=2650;
+  if(startMile>2660){
+    startMile=2660;
   }
   if(0>finishMile){
     finishMile=0;
   }
-  if(finishMile>2650){
-    finishMile=2650;
+  if(finishMile>2660){
+    finishMile=2660;
   }
   startMile=startMile*2;
   startMile=Math.round(startMile);
