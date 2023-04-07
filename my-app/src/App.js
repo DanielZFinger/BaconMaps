@@ -114,28 +114,9 @@ function App() {
         <input type="date" onChange={e=>setStartDate(e.target.value)}/>
         <input type="time" onChange={e=>setStartTime(e.target.value)}/>
         <input type="time" onChange={e=>setFinishTime(e.target.value)}/>
+        <TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" value={startMile} onChange={handleChangeStartMile}/>
+        <TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/>
 
-
-
-      {/* <TextField id="outlined-basic" value={day} onChange={handleChangeDay} label="Day" variant="outlined" />
-      <FormControl fullWidth>
-        <InputLabel variant="contained" id="demo-simple-select-label">Start Time</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={startTime}
-          label="StartTime"
-          onChange={handleChangeStartTime}
-        >
-          <MenuItem value={"13"}>1:00</MenuItem>
-          <MenuItem value={"14"}>1:15</MenuItem>
-          <MenuItem value={"15"}>1:30</MenuItem>
-          <MenuItem value={"16"}>1:45</MenuItem>
-        </Select>
-      </FormControl>
-      <TextField id="outlined-basic" value={activityDurationHour} onChange={handleChangeActivityDurationHour} label="Hour" variant="outlined" />
-      <TextField id="outlined-basic" value={activityDurationMinute} onChange={handleChangeActivityDurationMinute} label="Minute" variant="outlined" /> */}
-      {/* startmile */}
       <FormControl fullWidth>
         <InputLabel variant="contained" id="demo-simple-select-label">StartMile</InputLabel>
         <Select
