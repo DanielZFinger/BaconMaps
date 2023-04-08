@@ -24,6 +24,7 @@ let searchStr = window.location.search;
 let urlParams1 = new URLSearchParams(searchStr);
 let code1 = urlParams1.get('code')
 
+
 const lambda = new AWS.Lambda({
   region: 'us-east-1',
   accessKeyId: 'AKIA6HAOZELRICTE3GPS',
@@ -104,6 +105,7 @@ function App() {
   const [finishTime, setFinishTime] = React.useState("10:00");
   const [startMile, setStartMile] = React.useState('0');
   const [finishMile, setFinishMile] = React.useState('0');
+  const [show, setShow] = React.useState(true);
   const handleChangeStartDate = (event: SelectChangeEvent) => {
     setStartDate(event.target.value);
   };
@@ -146,7 +148,7 @@ function App() {
         <Box><TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/></Box>
         <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
       </Box>
-    <Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1); console.log(code1)}} >Create File</Button>
+    {show &&<Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setShow(!show); console.log(code1)}} >Create File</Button>}
     </header>
     </div>
     </DemoContainer>
