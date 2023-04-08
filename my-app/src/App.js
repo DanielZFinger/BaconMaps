@@ -105,7 +105,8 @@ function App() {
   const [finishTime, setFinishTime] = React.useState("10:00");
   const [startMile, setStartMile] = React.useState('0');
   const [finishMile, setFinishMile] = React.useState('0');
-  const [show, setShow] = React.useState(true);
+  const [show, setShow] = React.useState(false);
+  const [approved, setApproved] = React.useState(true);
   const handleChangeStartDate = (event: SelectChangeEvent) => {
     setStartDate(event.target.value);
   };
@@ -137,7 +138,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Typography sx={{m:"1%" ,color:"orange"}}>Link to Strava before creating your activity!</Typography>
-      <Button variant="contained" sx={{color:"orange"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
+      <Button variant="contained" sx={{color:"orange"}} onClick={()=>{setShow(!show);}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
       <Box sx={{ minWidth: 120 }} >
         <Box><label>Activity Date</label></Box>
         <Box><input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/></Box>
@@ -148,7 +149,8 @@ function App() {
         <Box><TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/></Box>
         <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
       </Box>
-    {show &&<Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setShow(!show); console.log(code1)}} >Create File</Button>}
+    <Box>{show &&<Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setApproved(!approved); setShow(!show); console.log(code1)}} >Create File</Button>}</Box>
+    <Box>{approved &&<Typography  sx={{m:"1%" ,color:"orange"}}>Activity Uploaded!</Typography>}</Box>
     </header>
     </div>
     </DemoContainer>
