@@ -137,9 +137,9 @@ function App() {
         <Typography sx={{m:"1%" ,color:"orange"}}>Link to Strava before creating your activity!</Typography>
       <Button variant="contained" sx={{color:"orange"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
       <Box sx={{ minWidth: 120 }} >
-        <label>Activity Date</label>
-        <input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/>
-        <label>Start Time</label>
+        <Box><label>Activity Date</label></Box>
+        <Box><input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/></Box>
+        <Box><label>Start Time</label></Box>
         <input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/>
         <label>Finish Time</label>
         <input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/>
