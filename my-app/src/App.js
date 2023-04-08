@@ -150,7 +150,7 @@ function App() {
         <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
       </Box>
     <Box>{show &&<Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setApproved(!approved); setShow(!show); console.log(code1)}} >Create File</Button>}</Box>
-    <Box>{approved &&<Typography  sx={{m:"1%" ,color:"orange"}}>Activity Uploaded!</Typography>}</Box>
+    <Box>{approved &&<Typography  sx={{m:"1%" ,color:"orange"}}>Activity Uploaded!</Typography> <Typography  sx={{m:"1%" ,color:"orange"}}>To upload another activity please connect to Strava again!</Typography>}</Box>
     </header>
     </div>
     </DemoContainer>
