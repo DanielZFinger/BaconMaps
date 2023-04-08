@@ -143,8 +143,8 @@ function App() {
         <Box><input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/></Box>
         <Box><label>Finish Time</label></Box>
         <Box><input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/></Box>
-        <TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/>
-        <TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/>
+        <Box><TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/></Box>
+        <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
       </Box>
     <Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1); console.log(code1)}} >Create File</Button>
     </header>
