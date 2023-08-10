@@ -1,51 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
 .App {
   text-align: center;
   align-items: center;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #808080;
-  min-height: 100vh;
+  margin: 0;
+  /* background-color: #808080; */
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.boxOutline{
+  border-radius: 10px;
+  /* border-color: beige; */
+  box-shadow: 0 10px 20px #FBE4E0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  text-align: center;
+  margin-top: 15vh;
+  width: 400px;
+  height: 68vh;
+  background-color: #fff;
+}
+
+.timeOutline{
+  /* padding: 20px; */
+}
+
+.page-Header{
+  background-color: rgb(27, 26, 26);
+  position: fixed;
+  color: white;
+  display: flex;
+  display: block;
+  font-family: 'Russo One', cursive;
+  font-size: 25px;
+  padding: 20px 20px;
+  text-decoration: none;
+  top:0;
+  width: 100%;
+  /* border-top: 5px solid rgba(26, 158, 176, 0.5);
+  border-bottom: 5px solid rgba(26, 158, 176, 0.5); */
+}
+
+.page-Footer{
+  background-color: rgb(27, 26, 26);
+  color: white;
+  font-size: 25px;
+  position: fixed;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+}
+
 input{
+  margin: 0;
   width: 100%;
   height: 40px;
   align-self: center;
   text-align: center;
   border-radius: 10px;
   /* padding: 5px; */
-  margin: 1px;
+  /* margin: 1px; */
   color: white;
   background-color: #a04160;
 }
 
-.App-link {
-  color: #61dafb;
+.background{
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 98vh;
+  background-image: url("images/IMG_4347.jpg");
+  animation: change 360s infinite ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media only screen and (max-width: 600px) {
+  .boxOutline{
+    width: 300px;
   }
 }
+
+@keyframes change{
+  0%{
+    background-image: url("images/photo-output.jpg");
+  }
+  18%{
+    background-image: url("images/photo-output.jpg");
+  }
+  20%{
+    background-image: url("images/IMG_4942.jpg");
+  }
+  38%{
+    background-image: url("images/IMG_4942.jpg");
+  }
+  40%{
+    background-image: url("images/IMG_5090.jpg");
+  }
+  58%{
+    background-image: url("images/IMG_5090.jpg");
+  }
+  60%{
+    background-image: url("images/IMG_4347.jpg");
+  }
+  78%{
+    background-image: url("images/IMG_4347.jpg");
+  }
+  80%{
+    background-image: url("images/IMG_7403.jpg");
+  }
+  98%{
+    background-image: url("images/IMG_7403.jpg");
+  }
+  100%{
+    background-image: url("images/photo-output.jpg");
+  }
+}
+

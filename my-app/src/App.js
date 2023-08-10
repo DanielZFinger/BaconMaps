@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css'
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -135,22 +136,22 @@ function App() {
           'MobileDatePicker'
         ]}
       >
-    <div className="App">
+      <div className="background">
+      <h1 className="page-Header">Auto Map</h1>
       <header className="App-header">
-        <Typography sx={{m:"1%" ,color:"orange"}}>Link to Strava before creating your activity!</Typography>
-      <Button variant="contained" sx={{color:"orange"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
-      <Box sx={{ minWidth: 120 }} >
-        <Box><label>Activity Date</label></Box>
-        <Box><input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/></Box>
-        <Box><label>Start Time</label></Box>
-        <Box><input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/></Box>
-        <Box><label>Finish Time</label></Box>
-        <Box><input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/></Box>
-        <Box><TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/></Box>
-        <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
-      </Box>
-    <Box>{show &&<Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setApproved(!approved); setShow(!show); console.log(code1)}} >Create File</Button>}</Box>
-    <Box>{approved &&<Typography  sx={{m:"1%" ,color:"orange"}}>Activity Uploaded! To upload another activity please connect to Strava again!</Typography>}</Box>
+        {/* box questionaire for laptops and PC */}
+        <box className="boxOutline">
+          <Typography sx={{m:"1%" ,color:"orange"}}>Link to Strava before creating your activity!</Typography>
+          <Button variant="contained" sx={{color:"orange"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Connect to Strava</Button>
+          <Box className="timeOutline"><input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/></Box>
+          <Box className="timeOutline"><input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/></Box>
+          <Box className="timeOutline"><input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/></Box>
+          <Box><TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/></Box>
+          <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
+          <Box>{show &&<Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setApproved(!approved); setShow(!show); console.log(code1)}} >Create File</Button>}</Box>
+          <Box>{approved &&<Typography  sx={{m:"1%" ,color:"orange"}}>Activity Uploaded! To upload another activity please connect to Strava again!</Typography>}</Box>
+        </box>
+      <h1 className="page-Footer">Contact Us</h1>
     </header>
     </div>
     </DemoContainer>
