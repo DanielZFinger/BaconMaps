@@ -20,7 +20,7 @@
 .boxOutline{
   border-radius: 10px;
   /* border-color: beige; */
-  box-shadow: 0 10px 20px #FBE4E0;
+  /* box-shadow: 0 10px 20px #FBE4E0; */
   padding-top: 40px;
   padding-bottom: 40px;
   padding-left: 2vw;
@@ -29,11 +29,17 @@
   margin-top: 15vh;
   width: 400px;
   height: 68vh;
-  background-color: #fff;
+  background-image: linear-gradient(to bottom right, rgb(39, 119, 209), rgb(247, 247, 247));
+  vertical-align: middle;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
 }
 
 .timeOutline{
-  /* padding: 20px; */
+  visibility: collapse;
 }
 
 .page-Header{
@@ -83,49 +89,12 @@ input{
   background-size: cover;
   background-repeat: no-repeat;
   height: 98vh;
-  background-image: url("images/IMG_4347.jpg");
-  animation: change 360s infinite ease-in-out;
+  background-image: url("images/IMG_4942.jpg");
 }
 
 @media only screen and (max-width: 600px) {
   .boxOutline{
     width: 300px;
-  }
-}
-
-@keyframes change{
-  0%{
-    background-image: url("images/photo-output.jpg");
-  }
-  18%{
-    background-image: url("images/photo-output.jpg");
-  }
-  20%{
-    background-image: url("images/IMG_4942.jpg");
-  }
-  38%{
-    background-image: url("images/IMG_4942.jpg");
-  }
-  40%{
-    background-image: url("images/IMG_5090.jpg");
-  }
-  58%{
-    background-image: url("images/IMG_5090.jpg");
-  }
-  60%{
-    background-image: url("images/IMG_4347.jpg");
-  }
-  78%{
-    background-image: url("images/IMG_4347.jpg");
-  }
-  80%{
-    background-image: url("images/IMG_7403.jpg");
-  }
-  98%{
-    background-image: url("images/IMG_7403.jpg");
-  }
-  100%{
-    background-image: url("images/photo-output.jpg");
   }
 }
 
