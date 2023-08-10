@@ -1,15 +1,20 @@
 {
   "files": {
-    "main.css": "/BaconMaps/static/css/main.f1148822.css",
-    "main.js": "/BaconMaps/static/js/main.e0d8496c.js",
+    "main.css": "/BaconMaps/static/css/main.c1ec67c4.css",
+    "main.js": "/BaconMaps/static/js/main.501c8360.js",
     "static/js/787.28cb0dcd.chunk.js": "/BaconMaps/static/js/787.28cb0dcd.chunk.js",
+    "static/media/IMG_7403.jpg": "/BaconMaps/static/media/IMG_7403.2cce3c89c785caa438e4.jpg",
+    "static/media/IMG_5090.jpg": "/BaconMaps/static/media/IMG_5090.d46cf208063a2cc77f7e.jpg",
+    "static/media/photo-output.jpg": "/BaconMaps/static/media/photo-output.dedc745f6d3813d89215.jpg",
+    "static/media/IMG_4347.jpg": "/BaconMaps/static/media/IMG_4347.12cd82a75daaf85b01ef.jpg",
+    "static/media/IMG_4942.jpg": "/BaconMaps/static/media/IMG_4942.e3373afa21bf540e2679.jpg",
     "index.html": "/BaconMaps/index.html",
-    "main.f1148822.css.map": "/BaconMaps/static/css/main.f1148822.css.map",
-    "main.e0d8496c.js.map": "/BaconMaps/static/js/main.e0d8496c.js.map",
+    "main.c1ec67c4.css.map": "/BaconMaps/static/css/main.c1ec67c4.css.map",
+    "main.501c8360.js.map": "/BaconMaps/static/js/main.501c8360.js.map",
     "787.28cb0dcd.chunk.js.map": "/BaconMaps/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1148822.css",
-    "static/js/main.e0d8496c.js"
+    "static/css/main.c1ec67c4.css",
+    "static/js/main.501c8360.js"
   ]
 }
