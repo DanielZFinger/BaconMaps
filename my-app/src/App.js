@@ -158,7 +158,7 @@ function App() {
           <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
           <Box>{show &&<Button variant="contained" onClick={() => {code1=null; callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setApproved(!approved); setShow(!show); console.log(code1)}} >Create File</Button>}</Box>
           <Box>{approved &&<Typography  sx={{m:"1%" ,color:"black"}}>Activity Uploading! Depending on the size of your activity this could take up to 5 minutes as we contact Strava's servers.</Typography>}
-          {!show&&<Button variant="contained" sx={{color:"white"}} href="http://danielzfinger.github.io/BaconMaps">Create Route</Button>}</Box>
+          {!show&&<Button variant="contained" sx={{color:"white"}} href="http://danielzfinger.github.io/BaconMaps">Return Home</Button>}</Box>
         </box>
       <a href ="https:"className="page-Footer">Contact Us</a>
     </header>
