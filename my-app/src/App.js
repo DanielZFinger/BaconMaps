@@ -3,6 +3,7 @@ import './index.css'
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -23,7 +24,7 @@ import AWS from 'aws-sdk';
 
 let searchStr = window.location.search;
 let urlParams1 = new URLSearchParams(searchStr);
-let code1 = urlParams1.get('code')
+let code1 = urlParams1.get('code');
 
 
 const lambda = new AWS.Lambda({
@@ -125,7 +126,7 @@ function App() {
     const result = event.target.value.replace(/\D/g, '');
     setFinishMile(result);
   };
-
+  
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer
@@ -141,25 +142,29 @@ function App() {
       <header className="App-header">
         {/* box questionaire for laptops and PC */}
         <box className="boxOutline">
-        <Typography sx={{m:"2%", color:"black", fontSize:"80%"}}>Select one of the options below to begin creating your route!</Typography>
-          <Box><Typography sx={{m:"2%" ,color:"black"}}>Already have a strava account?</Typography>
-          <Button variant="contained" sx={{color:"white"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box>
-          <Box><Typography sx={{m:"2%" ,color:"black"}}>Don't want to link to strava?</Typography>
-          <Typography sx={{m:"2%" ,color:"black"}}>That's ok! Click here to make a raw GPX file.</Typography>
-          <Button variant="contained" sx={{color:"white"}}>Create GPX file</Button></Box>
-          {/* <Box className="timeOutline"><input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/></Box>
-          <Box className="timeOutline"><input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/></Box>
-          <Box className="timeOutline"><input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/></Box> */}
-          {/* <Box><TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/></Box>
+        <Typography sx={{m:"2%", color:"black", fontSize:"80%"}}>Please link to Strava before creating your route!</Typography>
+          <Box><Typography sx={{m:"2%" ,color:"black"}}>Click below to connect to strava.</Typography>
+          {/* <Button variant="contained" sx={{color:"white"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box> */}
+          <Button variant="contained" sx={{color:"white"}} href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://localhost:3000/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box>
+          <Box><Typography sx={{m:"2%" ,color:"black"}}>Linked to Strava?</Typography>
+          <Typography sx={{m:"2%" ,color:"black"}}>Awesome! Click here to begin creating your route.</Typography>
+          {show&&<Button disabled={code1 != null ? false : true} onClick={()=>{var y=document.getElementsByClassName("timeOutline");for (var i in y) {if (y.hasOwnProperty(i)) {y[i].className = 'show-class';}} var x = document.getElementsByClassName("boxOutline");for (var i in x) {if (x.hasOwnProperty(i)) {x[i].className = 'hidden-class';}}}} variant="contained" sx={{color:"white"}}>Create Route</Button>}</Box>
+        </box>
+        <box className="timeOutline">
+          <Box><input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/></Box>
+          <Box><input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/></Box>
+          <Box><input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/></Box>
+          <Box><TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/></Box>
           <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
           <Box>{show &&<Button disabled={code1 != null ? false : true} variant="contained" onClick={() => {callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setApproved(!approved); setShow(!show); console.log(code1)}} >Create File</Button>}</Box>
-          <Box>{approved &&<Typography  sx={{m:"1%" ,color:"orange"}}>Activity Uploaded! To upload another activity please connect to Strava again!</Typography>}</Box> */}
+          <Box>{approved &&<Typography  sx={{m:"1%" ,color:"orange"}}>Activity Uploaded! To upload another activity please connect to Strava again!</Typography>}</Box>
         </box>
-      <h1 className="page-Footer">Contact Us</h1>
+      <a href ="https:"className="page-Footer">Contact Us</a>
     </header>
     </div>
     </DemoContainer>
     </LocalizationProvider>
+    
   );
 }
 
