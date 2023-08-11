@@ -81,7 +81,10 @@
   display: none;
 }
 
-.hidden-class { display: none; }
+.hidden-class { 
+  display: none;
+}
+
 .show-class { 
   display: flex;
   border-radius: 10px;

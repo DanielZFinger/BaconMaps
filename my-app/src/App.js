@@ -144,24 +144,26 @@ function App() {
         <box className="boxOutline">
         <Typography sx={{m:"2%", color:"black", fontSize:"80%"}}>Please link to Strava before creating your route!</Typography>
           <Box><Typography sx={{m:"2%" ,color:"black"}}>Click below to connect to strava.</Typography>
-          <Button variant="contained" sx={{color:"white"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box>
-          {/* <Button variant="contained" sx={{color:"white"}} href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://localhost:3000/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box> */}
+          {/* <Button variant="contained" sx={{color:"white"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box> */}
+          <Button variant="contained" sx={{color:"white"}} href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://localhost:3000/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box>
           <Box><Typography sx={{m:"2%" ,color:"black"}}>Linked to Strava?</Typography>
           <Typography sx={{m:"2%" ,color:"black"}}>Awesome! Click here to begin creating your route.</Typography>
           {show&&<Button disabled={code1 != null ? false : true} onClick={()=>{var y=document.getElementsByClassName("timeOutline");for (var i in y) {if (y.hasOwnProperty(i)) {y[i].className = 'show-class';}} var x = document.getElementsByClassName("boxOutline");for (var i in x) {if (x.hasOwnProperty(i)) {x[i].className = 'hidden-class';}}}} variant="contained" sx={{color:"white"}}>Create Route</Button>}</Box>
         </box>
         <box className="timeOutline">
-          <Box><input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/></Box>
-          <Box><input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/></Box>
-          <Box><input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/></Box>
-          <Box><TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/></Box>
-          <Box><TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/></Box>
-          <Box>{show &&<Button variant="contained" onClick={() => {var x=document.getElementsByClassName("returnHomeOutline");for (var i in x) {if (x.hasOwnProperty(i)) {x[i].className = 'show-class';}} var y=document.getElementsByClassName("timeOutline");for (var i in y) {if (y.hasOwnProperty(i)) {y[i].className = 'hidden-class';}} code1=null; callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setApproved(!approved); setShow(!show); console.log(code1)}} >Create File</Button>}</Box>
+          {show&&<input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/>}
+          {show&&<input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/>}
+          {show&&<input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/>}
+          {show&&<TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/>}
+          {show&&<TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/>}
+          {show &&<Button variant="contained" onClick={()=>{code1=null; callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);setApproved(!approved); setShow(!show); console.log(code1); var x=document.getElementsByClassName("returnHomeOutline");for (var i in x) {if (x.hasOwnProperty(i)) {x[i].className = 'show-class';}} var y = document.getElementsByClassName("timeOutline");for (var i in y) {if (y.hasOwnProperty(i)) {y[i].className = "hidden-class";}}}} >Create File</Button>}
+          {!show&&<Typography  sx={{m:"1%" ,color:"black"}}>Activity Uploading! Depending on the size of your activity this could take up to 5 minutes as we contact Strava's servers.</Typography>}
+          {!show&&<Button variant="contained" sx={{color:"white"}} href="http://danielzfinger.github.io/BaconMaps">Return Home</Button>}
         </box>
-        <box classname="returnHomeOutline">
-          <Box>{approved &&<Typography  sx={{m:"1%" ,color:"black"}}>Activity Uploading! Depending on the size of your activity this could take up to 5 minutes as we contact Strava's servers.</Typography>}
-          {!show&&<Button variant="contained" sx={{color:"white"}} href="http://danielzfinger.github.io/BaconMaps">Return Home</Button>}</Box>
-        </box>
+        {/* <box className="returnHomeOutline">
+          <Typography  sx={{m:"1%" ,color:"black"}}>Activity Uploading! Depending on the size of your activity this could take up to 5 minutes as we contact Strava's servers.</Typography>
+          <Button variant="contained" sx={{color:"white"}} href="http://danielzfinger.github.io/BaconMaps">Return Home</Button>
+        </box> */}
       <a href ="https:"className="page-Footer">Contact Us</a>
     </header>
     </div>
