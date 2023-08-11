@@ -118,6 +118,7 @@
   text-decoration: none;
   top:0;
   width: 100%;
+  z-index: 1;
   /* border-top: 5px solid rgba(26, 158, 176, 0.5);
   border-bottom: 5px solid rgba(26, 158, 176, 0.5); */
 }
