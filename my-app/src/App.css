@@ -60,6 +60,27 @@
   display: none;
 }
 
+.returnHomeOutline{
+  border-radius: 10px;
+  /* border-color: beige; */
+  /* box-shadow: 0 10px 20px #FBE4E0; */
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  text-align: center;
+  margin-top: 15vh;
+  width: 400px;
+  height: 68vh;
+  background-image: linear-gradient(to bottom right, rgb(39, 119, 209), rgb(247, 247, 247));
+  vertical-align: middle;
+  position: relative;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  display: none;
+}
+
 .hidden-class { display: none; }
 .show-class { 
   display: flex;
