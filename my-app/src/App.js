@@ -161,8 +161,8 @@ function App() {
         <box className="boxOutline">
         <Typography sx={{m:"2%", color:"black", fontSize:"80%"}}>Please link to Strava before creating your route!</Typography>
           <Box><Typography sx={{m:"2%" ,color:"black"}}>Click below to connect to strava.</Typography>
-          {/* <Button variant="contained" sx={{color:"white"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box> */}
-          <Button variant="contained" sx={{color:"white"}} href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://localhost:3000/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box>
+          <Button variant="contained" sx={{color:"white"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box>
+          {/* <Button variant="contained" sx={{color:"white"}} href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://localhost:3000/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box> */}
           <Box><Typography sx={{m:"2%" ,color:"black"}}>Linked to Strava?</Typography>
           <Typography sx={{m:"2%" ,color:"black"}}>Awesome! Click here to begin creating your route.</Typography>
           {show&&<Button disabled={code1 != null ? false : true} onClick={()=>{var y=document.getElementsByClassName("timeOutline");for (var i in y) {if (y.hasOwnProperty(i)) {y[i].className = 'show-class';}} var x = document.getElementsByClassName("boxOutline");for (var i in x) {if (x.hasOwnProperty(i)) {x[i].className = 'hidden-class';}}}} variant="contained" sx={{color:"white"}}>Create Route</Button>}</Box>
