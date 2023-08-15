@@ -2,6 +2,7 @@ import './App.css';
 import './index.css'
 import * as React from 'react';
 import Button from '@mui/material/Button';
+// import Field from '@mui/material/Field'
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import InputLabel from '@mui/material/InputLabel';
@@ -126,6 +127,22 @@ function App() {
     const result = event.target.value.replace(/\D/g, '');
     setFinishMile(result);
   };
+
+
+  function checkMinMax(event) {
+    var value = this.value,
+        min = this.getAttribute('min'),
+        max = this.getAttribute('max');
+    
+    if(value < min)
+        this.value = min;
+    else if(value > max)
+        this.value = max;
+    }
+    
+    window.addEventListener('load', function() {
+        document.getElementById('yourinput').addEventListener('keyup', checkMinMax);
+    });
   
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -144,18 +161,19 @@ function App() {
         <box className="boxOutline">
         <Typography sx={{m:"2%", color:"black", fontSize:"80%"}}>Please link to Strava before creating your route!</Typography>
           <Box><Typography sx={{m:"2%" ,color:"black"}}>Click below to connect to strava.</Typography>
-          <Button variant="contained" sx={{color:"white"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box>
-          {/* <Button variant="contained" sx={{color:"white"}} href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://localhost:3000/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box> */}
+          {/* <Button variant="contained" sx={{color:"white"}}href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://danielzfinger.github.io/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box> */}
+          <Button variant="contained" sx={{color:"white"}} href="https://www.strava.com/oauth/authorize?client_id=98457&redirect_uri=http://localhost:3000/BaconMaps/&response_type=code&scope=read_all,activity:read_all,activity:write">Link to Strava</Button></Box>
           <Box><Typography sx={{m:"2%" ,color:"black"}}>Linked to Strava?</Typography>
           <Typography sx={{m:"2%" ,color:"black"}}>Awesome! Click here to begin creating your route.</Typography>
           {show&&<Button disabled={code1 != null ? false : true} onClick={()=>{var y=document.getElementsByClassName("timeOutline");for (var i in y) {if (y.hasOwnProperty(i)) {y[i].className = 'show-class';}} var x = document.getElementsByClassName("boxOutline");for (var i in x) {if (x.hasOwnProperty(i)) {x[i].className = 'hidden-class';}}}} variant="contained" sx={{color:"white"}}>Create Route</Button>}</Box>
         </box>
         <box className="timeOutline">
-          {show&&<input type="date" defaultValue="2023-01-01" onChange={e=>setStartDate(e.target.value)}/>}
+          {show&&<input type="date" defaultValue="2023-08-01" onChange={e=>setStartDate(e.target.value)}/>}
           {show&&<input type="time" defaultValue="06:00:00" onChange={e=>setStartTime(e.target.value)}/>}
           {show&&<input type="time" defaultValue="18:00:00" onChange={e=>setFinishTime(e.target.value)}/>}
-          {show&&<TextField id="outlined-basic" label="Start Mile" variant="outlined" type="number" min="0" value={startMile} onChange={handleChangeStartMile}/>}
-          {show&&<TextField id="outlined-basic" label="Finish Mile" variant="outlined" type="number" value={finishMile} onChange={handleChangeFinishMile}/>}
+          {show&&<TextField id="outlined-basic" label="Start Mile (Range 0-250)" variant="outlined" type="number"  InputProps={{ inputProps: { min: 0, max: 250 } }} value={startMile} onChange={handleChangeStartMile}/>}
+          {show&&<TextField id="outlined-basic" label="Finish Mile (Range 0-250)" variant="outlined" type="number" InputProps={{ inputProps: { min: 0, max: 250 } }} value={finishMile} onChange={handleChangeFinishMile}/>}
+          {/* {show&&<input id="outlined-basic" label="Finish Mile" variant="outlined" type="number" min="0" max="250" step="1" value={finishMile} onChange={handleChangeFinishMile}/>} */}
           {show &&<Button variant="contained" onClick={()=>{callLambda(startTime, startDate, finishTime, startMile, finishMile, code1);code1=null;setApproved(!approved); setShow(!show); console.log(code1); var x=document.getElementsByClassName("returnHomeOutline");for (var i in x) {if (x.hasOwnProperty(i)) {x[i].className = 'show-class';}} var y = document.getElementsByClassName("timeOutline");for (var i in y) {if (y.hasOwnProperty(i)) {y[i].className = "hidden-class";}}}} >Create File</Button>}
           {!show&&<Typography  sx={{m:"1%" ,color:"black"}}>Activity Uploading! Depending on the size of your activity this could take up to a minute as we contact Strava's servers.</Typography>}
           {!show&&<Button variant="contained" sx={{color:"white"}} href="http://danielzfinger.github.io/BaconMaps">Return Home</Button>}
