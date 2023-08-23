@@ -182,7 +182,7 @@ function App() {
           <Typography  sx={{m:"1%" ,color:"black"}}>Activity Uploading! Depending on the size of your activity this could take up to 5 minutes as we contact Strava's servers.</Typography>
           <Button variant="contained" sx={{color:"white"}} href="http://danielzfinger.github.io/BaconMaps">Return Home</Button>
         </box> */}
-      <a href ="https:"className="page-Footer">Contact Us</a>
+      {/* <a href ="https:"className="page-Footer">Contact Us</a> */}
     </header>
     </div>
     </DemoContainer>
